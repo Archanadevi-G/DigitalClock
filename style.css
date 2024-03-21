@@ -1,0 +1,91 @@
+@font-face {
+  font-family: DigitalClock;
+  src: url(Technology-Bold.ttf); /*font for digital clock*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000;
+  user-select: none;
+}
+
+.container {
+  width: 520px;
+  padding: 30px;
+  background-color: #f3f3f3;
+  box-shadow: 10px 10px 50px #808080;
+  border-radius: 8px;
+}
+
+.container .display {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #dddddd;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), inset, 0 1px 1px #fafafa;
+  position: relative;
+}
+
+.container .display .weekdays {
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  position: absolute;
+  top: -23px;
+  left: 0;
+  text-align: center;
+  font-family: DigitalClock;
+}
+.weekdays span {
+  padding: 0 10px;
+  opacity: 0.2;
+}
+.weekdays span.active {
+  opacity: 1;
+  color: #ff0051;
+  font-size: 25px;
+}
+
+.display .clock {
+  display: flex;
+  justify-content: center;
+  color: #f00;
+  animation: animate 1ms linear infinite;
+}
+
+.clock .time {
+  min-width: 100px;
+  height: 80px;
+  font-size: 80px;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 3px;
+  font-family: DigitalClock;
+  overflow: hidden;
+}
+.clock .am_pm {
+  font-size: 80px;
+  margin-left: 20px;
+  font-family: DigitalClock;
+}
+.time .dot {
+  animation: blink 1s linear infinite;
+}
+@keyframes blink {
+  25% {
+    opacity: 0;
+  }
+}
+@keyframes animate {
+  100% {
+    filter: hue-rotate(45deg);
+  }
+}
